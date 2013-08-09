@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'yml_gtranslate'
+
+if ARGV.size != 3 and ARGV.size != 2
+    puts "Usage: #{$0} <from_lang> <to_lang> [directory]"
+    puts "       goes thru all *from_lang.yml files in the direcotry"
+    puts "       the default dir is config/locales"
+    puts "       eg: #{$0} en de . -> translates all *en.yml to *de.yml files in the current directory"
+    exit -1
+end
+
+from_lang = ARGV[0]
+to_lang = ARGV[1]
+directory = ARGV[2] || "config/locales"
+
+#puts directory
+#exit
+
+gt = YmlGtranslate::Translator.new(from_lang, to_lang, directory)
+gt.translate_locales
