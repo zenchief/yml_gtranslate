@@ -1,0 +1,2 @@
+require 'yml_gtranslate'
+
