@@ -1,8 +1,9 @@
 namespace :yml do
-  desc 'my plugins rake task'
+  desc 'translates your yml files in config/locales using Google Translate. e.g.: rake yml:gt en de'
   task :gt do
     puts "the rake task did something"
-    gtranslate
+    #gtranslate
+
   end
  
 end
