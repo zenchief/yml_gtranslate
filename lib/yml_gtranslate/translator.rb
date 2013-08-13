@@ -9,18 +9,22 @@ module YmlGtranslate
 		def initialize(from_lang, to_lang, dir)
 		  @from_lang = from_lang
 			@to_lang = to_lang
-			@directory = dir
+			@directory = dir || ""
 		end
-
-
-
+		
+		COMMENT_TOKEN = "#i18n-GT"
+		
 		def translate(string)
 			command = <<-EOF
 			curl -s -A "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0" "http://translate.google.com/translate_a/t?client=t&text=#{URI.escape(string)}&hl=#{@from_lang}&sl=auto&tl=#{@to_lang}&multires=1&prev=conf&psl=auto&ptl=#{@from_lang}&otf=1&it=sel.7123%2Ctgtd.3099&ssel=0&tsel=4&uptl=#{@to_lang}&sc=1"
 			EOF
 			command.strip!
 			res = `#{command}`.gsub!(/,+/, ",")
-			JSON.parse(res).first.first.first.strip + "#i18n-GT"
+			JSON.parse(res).first.first.first.strip
+		end
+		
+		def comment(string)
+		  string + COMMENT_TOKEN
 		end
 
 
@@ -30,7 +34,7 @@ module YmlGtranslate
 			 if hash2.key?(key)
 				 h[key] = value.is_a?(Hash) ? compare(value, hash2[key]) : hash2[key]
 			 else
-				 h[key] = value.is_a?(Hash) ? compare(value, {}) : value.is_a?(String) ? translate(value) : value  
+				 h[key] = value.is_a?(Hash) ? compare(value, {}) : value.is_a?(String) ? comment(translate(value)) : value  
 			 end
 			 h
 		 end

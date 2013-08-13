@@ -5,7 +5,3 @@ RSpec::Core::RakeTask.new
 
 task :default => :spec
 task :test => :spec
-
-task :greet do
-  puts "Hullo"
-end
