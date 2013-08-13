@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = YmlGtranslate::VERSION
   gem.authors       = ["Stefan Mikula"]
   gem.email         = ["stef.mikula@gmail.com"]
-  gem.description   = %q{Uses Google translate service to translate your *.yml files in your rails projects. Handy to get your localizations started fast.}
-  gem.summary       = %q{Translates your *.yml locale files using Google Translate (not thru API).}
+  gem.description   = %q{Uses Google Translate service to translate your *.yml files in your Rails projects. Handy to get your localizations started fast.}
+  gem.summary       = %q{Translates your *.yml locale files using Google Translate (no GT API).}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
@@ -20,8 +20,11 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
 
-  gem.add_development_dependency 'ya2yaml'
-
-
+  gem.add_runtime_dependency 'ya2yaml'
+  gem.add_runtime_dependency 'json'
+  gem.add_runtime_dependency 'yaml'
+  gem.add_runtime_dependency 'uri'
+  
+  
 
 end
