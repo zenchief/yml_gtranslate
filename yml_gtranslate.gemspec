@@ -22,8 +22,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'ya2yaml'
   gem.add_runtime_dependency 'json'
-  gem.add_runtime_dependency 'yaml'
-  gem.add_runtime_dependency 'uri'
+
   
   
 
