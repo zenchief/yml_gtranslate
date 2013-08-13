@@ -68,7 +68,7 @@ en:
 ```ruby
 de:
   oranges: "my awesome deutsch translation: Orangen"
-```ruby
+```
 
 Command `yml_gt en de .` will result in `de.yml` being updated to:
 ```ruby
