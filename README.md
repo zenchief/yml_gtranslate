@@ -6,14 +6,14 @@ It creates missing `*.yml` localization config files or updates the locale files
 
 ## Installation
 
-Use rubygems for installation:
+A: The easiest way is to use rubygems for installation:
 
     $ gem install yml_gtranslate
 
 
 or add this line to your application's Gemfile:
 
-    gem 'yml_gtranslate', :git => 'git://github.com/zenchief/yml_gtranslate.git'
+    gem 'yml_gtranslate'
 
 
 And then execute:
