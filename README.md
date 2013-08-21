@@ -45,9 +45,9 @@ Translates all sk.yml files in the _current directory_ to English (hence the dot
 
 	$ yml_gt sk en .
 	
-This is going to take your all your `config/locales/*en.yml` files and compare them with `config/locales/*de.yml` files.
-(That is in case your locale files are divided, e.g. en.yml, devise.en.yml etc.). If the target file does not exist
-it's going to create it and translate all string keys in the source file to German using Google Translate.
+This is going to take your all your `config/locales/*sk.yml` files and compare them with `config/locales/*en.yml` files.
+(That is in case your locale files are divided, e.g. sk.yml, devise.sk.yml etc.). If the target file does not exist
+it's going to create it and translate all string keys in the source file to English using Google Translate.
 If the target file already exists it's gonna compare all the string keys in both source and target and translate only those missing in the target.
 
 The translation adds a comment "#i18n-GT" after the translated key. This is to let you know, that this string was
